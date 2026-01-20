@@ -50,6 +50,7 @@ interface PedidoDetalhes {
     formaPagamento: string;
     statusPagamento: string;
   };
+ caminhoAssinatura?: string; // <--- ADICIONE ESTA LINHA AQUI!
 }
 
 export default function DetalhesPedidoScreen() {
