@@ -4,15 +4,17 @@ import { getAuth } from "firebase/auth";
 import { getStorage } from "firebase/storage";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDrZkAJXfZq82j-f08HSnLLvSzswBGAYHQ",
-  authDomain: "oticamovel-48618.firebaseapp.com",
-  projectId: "oticamovel-48618",
-  storageBucket: "oticamovel-48618.firebasestorage.app",
-  messagingSenderId: "1066818129458",
-  appId: "1:1066818129458:web:1fe0413e507e812ba3b62b"
+  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
+  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
 };
 
+// Inicializa o Firebase (padrão Singleton para evitar recriação)
 const app = !getApps().length ? initializeApp(firebaseConfig) : getApp();
+
 const db = getFirestore(app);
 const auth = getAuth(app);
 const storage = getStorage(app);
